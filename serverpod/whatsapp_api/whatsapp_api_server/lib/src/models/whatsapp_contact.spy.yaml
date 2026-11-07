@@ -1,0 +1,12 @@
+class: WhatsappContact
+table: whatsapp_contact
+fields:
+  jid: String
+  name: String?
+  phone: String?
+  createdAt: DateTime
+  updatedAt: DateTime
+indexes:
+  whatsapp_contact_jid_idx:
+    fields: jid
+    unique: true

@@ -1,0 +1,16 @@
+class: WhatsappMessage
+table: whatsapp_message
+fields:
+  conversationId: int
+  whatsappMessageId: String
+  senderJid: String
+  fromMe: bool
+  content: String
+  timestamp: DateTime
+  createdAt: DateTime
+indexes:
+  whatsapp_message_id_idx:
+    fields: whatsappMessageId
+    unique: true
+  whatsapp_message_conversation_idx:
+    fields: conversationId

@@ -1,0 +1,19 @@
+name: whatsapp_api
+description: Serviço de API (REST + WebSocket + webhooks) para WhatsApp, escrito em Dart.
+version: 0.1.0
+publish_to: none
+
+environment:
+  sdk: ^3.5.0
+
+dependencies:
+  crypto: ^3.0.3
+  http: ^1.2.0
+  shelf: ^1.4.1
+  shelf_router: ^1.1.4
+  shelf_web_socket: ^3.0.0
+  web_socket_channel: ^3.0.0
+
+dev_dependencies:
+  lints: ^5.0.0
+  test: ^1.25.0

@@ -1,0 +1,44 @@
+services:
+  # Development services
+  postgres:
+    image: pgvector/pgvector:pg16
+    ports:
+      - "8090:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: whatsapp_api
+      POSTGRES_PASSWORD: "o1xrV4ySWqaelB4ov5fs2RQj2ocge8hY"
+    volumes:
+      - whatsapp_api_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:6.2.6
+    ports:
+      - "8091:6379"
+    command: redis-server --requirepass "y5WlrHUoPDGZO81ARq_P9G8wfKZfobU_"
+    environment:
+      - REDIS_REPLICATION_MODE=master
+
+  # Test services
+  postgres_test:
+    image: pgvector/pgvector:pg16
+    ports:
+      - "9090:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: whatsapp_api_test
+      POSTGRES_PASSWORD: "i4JUNW8b6Vu39uytAo7VbZNRjwKLVzE-"
+    volumes:
+      - whatsapp_api_test_data:/var/lib/postgresql/data
+
+  redis_test:
+    image: redis:6.2.6
+    ports:
+      - "9091:6379"
+    command: redis-server --requirepass "yl46DkUjnbbR2FKKQEs7Hx7Y3cAsbHUI"
+    environment:
+      - REDIS_REPLICATION_MODE=master
+
+volumes:
+  whatsapp_api_data:
+  whatsapp_api_test_data:

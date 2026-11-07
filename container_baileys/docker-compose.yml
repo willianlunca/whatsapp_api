@@ -1,0 +1,18 @@
+services:
+  baileys:
+    build: .
+    container_name: whatsapp-talk-baileys
+    restart: unless-stopped
+
+    environment:
+      PORT: "3001"
+      AUTH_DIR: "/app/data/auth"
+      API_TOKEN: "${API_TOKEN}"
+      SERVERPOD_WEBHOOK_URL: "http://host.docker.internal:8082/webhooks/whatsapp"
+      SERVERPOD_WEBHOOK_TOKEN: "${SERVERPOD_WEBHOOK_TOKEN}"
+
+    ports:
+      - "127.0.0.1:3001:3001"
+
+    volumes:
+      - ./data:/app/data

@@ -1,0 +1,16 @@
+version: 0.0
+os: linux
+files:
+  - source: /vendor/
+    destination: /home/ec2-user/serverpod/upload/vendor/
+  - source: /whatsapp_api_server/
+    destination: /home/ec2-user/serverpod/upload/whatsapp_api_server/
+hooks:
+  BeforeInstall:
+    - location: whatsapp_api_server/deploy/aws/scripts/install_dependencies
+      timeout: 300
+      runas: root
+  ApplicationStart:
+    - location: whatsapp_api_server/deploy/aws/scripts/start_server
+      timeout: 300
+      runas: root

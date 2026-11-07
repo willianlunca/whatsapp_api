@@ -1,0 +1,12 @@
+class: WhatsappConversation
+table: whatsapp_conversation
+fields:
+  contactId: int
+  status: String
+  lastMessageAt: DateTime?
+  createdAt: DateTime
+  updatedAt: DateTime
+indexes:
+  whatsapp_conversation_contact_idx:
+    fields: contactId
+    unique: true
